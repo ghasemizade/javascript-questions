@@ -72,21 +72,21 @@ sayHi();
 - C: `ReferenceError` and `21`
 - D: `undefined` and `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>جواب</b></summary>
 <p>
 
 #### جواب: D
 
-در داخل تابع، ابتدا متغیر `name` را با کلمه کلیدی `var` اعلام می کنیم. این بدان معناست که متغیر بالا می‌رود (فضای حافظه در مرحله ایجاد تنظیم می‌شود) با مقدار پیش‌فرض `undefined`، تا زمانی که در واقع به خطی که متغیر را تعریف می‌کنیم برسیم. ما هنوز متغیر را در خطی که می‌خواهیم متغیر `name` را ثبت کنیم، تعریف نکرده‌ایم، بنابراین همچنان مقدار `undefined` را حفظ می‌کند.
+در داخل تابع، ابتدا متغیر `name` را با کلمه کلیدی `var` اعلام می کنیم. این بدان معناست که متغیر بالا می‌رود (فضای حافظه در مرحله ایجاد تنظیم می‌شود) با مقدار پیش‌فرض `undefined`، تا زمانی که در واقع به خطی که متغیر را تعریف می‌کنیم برسیم. اما ما هنوز متغیر را در خطی که می‌خواهیم متغیر `name` را ثبت کنیم، تعریف نکرده‌ایم، بنابراین همچنان مقدار `undefined` را حفظ می‌کند.
 
-متغیرهای دارای کلمه کلیدی `let`, `const` بالا می‌روند، اما برخلاف <i>initialized</i> ,`var` نمی‌شوند. آنها قبل از خطی که ما آنها را تعریف می کنیم (initialized) در دسترس نیستند. این "tempral dead zone" (منطقه مرده موقت) نامیده می شود. هنگامی که سعی می کنیم به متغیرها قبل از تعریف آنها دسترسی پیدا کنیم، جاوا اسکریپت یک `ReferenceError` ایجاد می کند.
+متغیرهای دارای کلمه کلیدی `let`, `const` بالا می‌روند (hoisting)، اما برخلاف <i>initialized</i> ,`var` نمی‌شوند. آنها قبل از خطی که ما آنها را تعریف می کنیم (initialized) در دسترس نیستند. این "tempral dead zone" (منطقه مرده موقت) نامیده می شود. هنگامی که سعی می کنیم به متغیرها قبل از تعریف آنها دسترسی پیدا کنیم، جاوا اسکریپت یک `ReferenceError` ایجاد می کند.
 
 </p>
 </details>
 
 ---
 
-###### 2. What's the output?
+###### 2. خروجی کد زیر چیست؟
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -102,14 +102,15 @@ for (let i = 0; i < 3; i++) {
 - B: `0 1 2` and `3 3 3`
 - C: `3 3 3` and `0 1 2`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>جواب</b></summary>
 <p>
 
-#### Answer: C
+#### جواب: C
 
-Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
+در جاوا اسکریپت
+به دلیل رویداد صف 'event queue' ، تابع `setTimeout` پس از اجرای حلقه فراخوانی می شود. از آنجایی که متغیر `i` در اولین حلقه با استفاده از کلمه کلیدی `var` اعلام شد، این مقدار جهانی (global) بوده. در طول حلقه، هر بار با استفاده از عملگر یوناری `++` مقدار `i` را `1` واحد افزایش دادیم. تا زمانی که تابع `setTimeout` فراخوانی شد، `i` در مثال اول برابر با `3` بود.
 
-In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
+در حلقه دوم، متغیر `i` با استفاده از کلمه کلیدی `let` تعریف شد: متغیرهای تعریف شده با کلمه کلیدی `const`, `let` دارای محدوده بلوکی هستند (یک بلوک هر چیزی بین `{ }` است). در طول هر تکرار، `i` یک مقدار جدید خواهد داشت و هر مقدار در داخل حلقه قرار می گیرد.
 
 </p>
 </details>
