@@ -117,7 +117,7 @@ for (let i = 0; i < 3; i++) {
 
 ---
 
-###### 3. What's the output?
+###### 3. خروجی کد زیر چیست؟
 
 ```javascript
 const shape = {
@@ -137,16 +137,16 @@ console.log(shape.perimeter());
 - C: `20` and `63`
 - D: `NaN` and `63`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>جواب</b></summary>
 <p>
 
-#### Answer: B
+#### جواب: B
 
-Note that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.
+توجه داشته باشید که مقدار "diameter" یک regular function است، در حالی که مقدار "perimeter" یک arrow function است.
 
-With arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).
+در arrow function، کلمه کلیدی «this» بر خلاف توابع معمولی (regular function) به محدوده فعلی اطراف آن اشاره دارد! این بدان معناست که وقتی «perimeter» را صدا می زنیم، به شکل شی اشاره نمی کند، بلکه به محدوده اطراف آن (برای مثال پنجره) اشاره دارد.
 
-Since there is no value `radius` in the scope of the arrow function, `this.radius` returns `undefined` which, when multiplied by `2 * Math.PI`, results in `NaN`.
+از آنجایی که هیچ مقدار «radius» در محدوده تابع پیکان (arrow function) وجود ندارد، «undefined» ،«this.radius» را برمی‌گرداند که وقتی در «2 \* Math.PI» ضرب شود، به «NaN» منجر می‌شود.
 
 </p>
 </details>
