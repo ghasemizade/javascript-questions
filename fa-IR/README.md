@@ -153,7 +153,7 @@ console.log(shape.perimeter());
 
 ---
 
-###### 4. What's the output?
+###### 4. خروجی کد زیر چیست؟
 
 ```javascript
 +true;
@@ -164,14 +164,14 @@ console.log(shape.perimeter());
 - B: `false` and `NaN`
 - C: `false` and `false`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>جواب</b></summary>
 <p>
 
-#### Answer: A
+#### جواب: A
 
-The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
+علامت مثبت سعی می کند یک عملوند را به عدد تبدیل کند. "true" می شود 1 و "false" می شود 0.
 
-The string `'Lydia'` is a truthy value. What we're actually asking, is "Is this truthy value falsy?". This returns `false`.
+رشته "Lydia" یک مقدار واقعی است. چیزی که ما واقعاً می‌پرسیم این است که "آیا این truthy است یا falsy ؟". این"false" را برمی گرداند.
 
 </p>
 </details>
